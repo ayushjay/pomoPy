@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CreateUserForm
+from .models import TodoM
+from .forms import CreateUserForm, TodoForm
+
 
 def registerPage(request):
     form = CreateUserForm()
@@ -15,5 +17,10 @@ def registerPage(request):
             
     context = {"form": form}
     return render(request,"todo/register.html", context)
+
+def TodoView(request):
+    TodoForm = TodoForm()
+
+    return render(request, )
 
 
