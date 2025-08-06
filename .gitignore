@@ -1,2 +1,60 @@
 .venv
 db.sqlite3
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django migration files (optional to ignore)
+# If you're working in a team or deploying, keep them tracked
+# Uncomment if you want to ignore
+*/migrations/*.py
+*/migrations/*.pyc
+
+# Environment variables
+.env
+*.env
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS, Windows
+.DS_Store
+Thumbs.db
+
+# Database files (optional)
+*.sqlite3
+
+# Logs
+*.log
+
+# Media and static files (optional if collected/generated)
+media/
+staticfiles/
+static/
+
+# Coverage and test output
+htmlcov/
+coverage.xml
+*.cover
+*.py,cover
+.cache
+.tox/
+nosetests.xml
+.junit.xml
+
+# Pipenv and poetry
+Pipfile.lock
+poetry.lock
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/

@@ -1,26 +1,32 @@
 from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm
-from .models import TodoM
-from .forms import CreateUserForm, TodoForm
+from django.contrib.auth import login
+from .models import TodoModel
+from .forms import RegisterForm, TodoForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
+from django.urls import reverse_lazy
 
 
-def registerPage(request):
-    form = CreateUserForm()
+class RegisterView(CreateView):
+    form_class = RegisterForm
+    template_name = "todo/register.html"
+    success_url = reverse_lazy("todo:TodoList")
+
+    def form_valid(self, form):
+        user = form.save()
+
+        if user:
+            login(self.request, user)
+
+        return super().form_valid(form)
+
+class TodoList(LoginRequiredMixin, ListView):
+    model = TodoModel
+    template_name = "todo/listtodo.html"
 
 
-
-    if request.method == "POST":
-        form = CreateUserForm(request.POST)
-        if form.is_valid():
-            form.save()
-
-            
-    context = {"form": form}
-    return render(request,"todo/register.html", context)
-
-def TodoView(request):
-    TodoForm = TodoForm()
-
-    return render(request, )
-
+class TodoCreate(LoginRequiredMixin, CreateView):
+    form_class = TodoForm
+    template_name = "todo/createtodo.html"
+    success_url = reverse_lazy("todo:TodoList")
 
