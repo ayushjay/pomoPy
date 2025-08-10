@@ -1,13 +1,18 @@
 <!DOCTYPE html>
+{% load static %}
+
 <head>
 <title>
    The pompPy App
 </title>
+
+<link rel="stylesheet" href="{% static 'todo/styles.css' %}">
 </head>
 
 <div class="topnav">
-  <a class="active" href="">Home</a>
+  <a class="active" href="{% url 'todo:todolist_url' %}">Home</a>
   <a href="#">Pomodro</a>
+  <a href="{%  url 'todo:create' %}">Create Task</a>
 {% if user.is_authenticated %}
 
 
@@ -17,11 +22,14 @@
 </div> 
 <body>
 {% if user.is_authenticated %}
-    {% block content %}
-    {% endblock %}
+
 {% else %}
-    <p>Please <a href="{% url 'todo:login' %}"> login</a> to see this page </p>
+
+    <p>Please <a href="{% url 'todo:login' %}"> login</a> here </p>
+   
 {%  endif %}
+{% block content %}
+{% endblock %}
 
 </body>
 

@@ -20,14 +20,18 @@ class RegisterView(CreateView):
 
         return super().form_valid(form)
 
-class TodoList(LoginRequiredMixin, ListView):
+class TodoList(ListView):
     model = TodoModel
     template_name = "todo/listtodo.html"
     paginate_by = 3
 
 
+class TodoDetail(DetailView):
+    model = TodoModel
+    template_name = "todo/tododetail.html"
+
+
 class TodoCreate(LoginRequiredMixin, CreateView):
     form_class = TodoForm
-    template_name = "todo/createtodo.html"
-    success_url = reverse_lazy("todo:todolist_url")
-
+    template_name = 'todo/createtodo.html'
+    success_url = reverse_lazy('success')

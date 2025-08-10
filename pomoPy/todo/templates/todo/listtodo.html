@@ -2,12 +2,13 @@
 
 
 {% block content %}
-<h1>My Todos</h1>
+<h1>Todos of different users</h1>
 <ul>
 {% for todo in object_list %}
-    <h4>{{ todo.title }} </h4>
-    <p>{{ todo.description  }}</p>
-    {{ todo.due_date }}
+<a href="{% url 'todo:detail' todo.id %}">
+    <h2>{{ todo.title }} </h2>
+    <p>Created by user- {{todo.author|capfirst  }}</p>
+</a>
 {% empty %}
     <li>No todo yet.</li>
 {% endfor %}

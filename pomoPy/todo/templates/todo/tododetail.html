@@ -1,0 +1,12 @@
+{% extends 'todo/layout.html' %}
+
+{% block content%}
+
+<h1>{{ object.title }}</h1>
+<p>{{ object.description }}</p>
+<p>{{ object.due_date }}</p>
+Created by user- {{object.author|capfirst}}
+<br>
+<p>Go home by clicking <a href="{% url 'todo:todolist_url' %}">here</a></p>
+
+{% endblock %}
