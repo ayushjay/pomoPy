@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load humanize %}
 
 <head>
 <title>
@@ -11,7 +12,7 @@
 
 <div class="topnav">
   <a class="active" href="{% url 'todo:todolist_url' %}">Home</a>
-  <a href="#">Pomodro</a>
+  <a href=" {% url 'pomodroApp:' %}">Pomodro</a>
   <a href="{%  url 'todo:create' %}">Create Task</a>
 {% if user.is_authenticated %}
 

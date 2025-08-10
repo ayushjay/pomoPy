@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Pomodoro Timer</title>
+</head>
+<body>
+    <h1>Pomodoro Timer ({{ time_left|default:"Not started" }})</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Start 25/50 min Timer</button>
+    </form>
+
+    <p>Refresh the page to see the updated time.</p>
+</body>
+</html>
