@@ -6,7 +6,11 @@
 <p>{{ object.description }}</p>
 <p>{{ object.due_date }}</p>
 Created by user- {{object.author|capfirst}}
+<br> 
+<a href="{% url 'todo:update' object.id %}">Edit the todo here</a>
+<a href="{% url 'todo:delete' object.id%}" style="color:red">Delete Todo</a>
 <br>
 <p>Go home by clicking <a href="{% url 'todo:todolist_url' %}">here</a></p>
+
 
 {% endblock %}

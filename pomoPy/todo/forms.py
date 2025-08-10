@@ -7,18 +7,20 @@ from django.forms.widgets import DateTimeInput
 
 
 class RegisterForm(UserCreationForm):
-    """Form to register User"""
 
     class Meta:
         model = User
         fields = ["username", "password1", "password2"]
 
-class DateInput(forms.DateInput):
-    input_type = 'date'
+class DateTimeInput(forms.DateTimeInput):
+    input_type = 'datetime-local'
+    format = "%Y-%m-%dT%H:%M"
 
-class TodoForm(forms.Form):
-        title = forms.CharField(max_length=60)
-        description = forms.Textarea()
-        due_date = forms.DateTimeField(
-            widget=DateTimeInput(attrs={'type': 'datetime-local'})
-        )
+class TodoForm(forms.ModelForm):
+        class Meta:
+            model = TodoModel
+            fields = ['title', 'description','due_date']
+            widgets = {
+            'due_date': DateTimeInput(),
+            }
+            
