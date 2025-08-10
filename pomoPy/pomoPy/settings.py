@@ -122,7 +122,8 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+TIME_ZONE =  'Asia/Kolkata'
 
 LOGIN_URL = "todo:login"
-LOGIN_REDIRECT_URL = "todo:TodoList"
+LOGIN_REDIRECT_URL = "todo:todolist_url"
 LOGOUT_REDIRECT_URL = LOGIN_URL

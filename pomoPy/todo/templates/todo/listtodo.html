@@ -1,0 +1,16 @@
+{% extends 'todo/layout.html' %}
+
+
+{% block content %}
+<h1>My Todos</h1>
+<ul>
+{% for todo in object_list %}
+    <h4>{{ todo.title }} </h4>
+    <p>{{ todo.description  }}</p>
+    {{ todo.due_date }}
+{% empty %}
+    <li>No todo yet.</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

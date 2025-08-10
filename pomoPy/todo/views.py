@@ -10,7 +10,7 @@ from django.urls import reverse_lazy
 class RegisterView(CreateView):
     form_class = RegisterForm
     template_name = "todo/register.html"
-    success_url = reverse_lazy("todo:TodoList")
+    success_url = reverse_lazy('todo:login')
 
     def form_valid(self, form):
         user = form.save()
@@ -23,10 +23,11 @@ class RegisterView(CreateView):
 class TodoList(LoginRequiredMixin, ListView):
     model = TodoModel
     template_name = "todo/listtodo.html"
+    paginate_by = 3
 
 
 class TodoCreate(LoginRequiredMixin, CreateView):
     form_class = TodoForm
     template_name = "todo/createtodo.html"
-    success_url = reverse_lazy("todo:TodoList")
+    success_url = reverse_lazy("todo:todolist_url")
 
