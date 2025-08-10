@@ -2,12 +2,24 @@
 
 {% block content%}
 
+{% if object.completed %}
+<div style="text-decoration: line-through;">
 <h1>{{ object.title }}</h1>
 <p>{{ object.description }}</p>
 <p>{{ object.due_date }}</p>
 Created by user- {{object.author|capfirst}}
+</div>
+
+{% else %}
+<h1>{{ object.title }}</h1>
+<p>{{ object.description }}</p>
+<p>{{ object.due_date }}</p>
+Created by user- {{object.author|capfirst}}
+</div>
+{% endif %}
 <br> 
 <a href="{% url 'todo:update' object.id %}">Edit the todo here</a>
+<br>
 <a href="{% url 'todo:delete' object.id%}" style="color:red">Delete Todo</a>
 <br>
 <p>Go home by clicking <a href="{% url 'todo:todolist_url' %}">here</a></p>

@@ -23,7 +23,7 @@ class RegisterView(CreateView):
 class TodoList(ListView):
     model = TodoModel
     template_name = "todo/listtodo.html"
-    paginate_by = 3
+    paginate_by = 20
 
 
 class TodoDetail(DetailView):

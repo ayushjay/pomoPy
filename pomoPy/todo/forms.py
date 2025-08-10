@@ -19,7 +19,7 @@ class DateTimeInput(forms.DateTimeInput):
 class TodoForm(forms.ModelForm):
         class Meta:
             model = TodoModel
-            fields = ['title', 'description','due_date']
+            fields = ['title', 'description','due_date', 'completed']
             widgets = {
             'due_date': DateTimeInput(),
             }

@@ -3,15 +3,25 @@
 
 {% block content %}
 <h1>Todos of different users</h1>
-<ul>
-{% for todo in object_list %}
-<a href="{% url 'todo:detail' todo.id %}">
-    <h2>{{ todo.title }} </h2>
-    <p>Created by user- {{todo.author|capfirst  }}</p>
-</a>
-{% empty %}
-    <li>No todo yet.</li>
-{% endfor %}
-</ul>
+
+    {% for todo in object_list %}
+       
+           
+             <div {% if todo.completed %}style="text-decoration: line-through;"{% endif %}>
+                 <a href="{% url 'todo:detail' todo.id %}">
+                    <h2>
+                    {{ todo.title }} 
+                </h2>
+                  </a>
+                <p>
+                    Created by user- {{ todo.author|capfirst  }}
+                </p>
+                </div>
+      
+    {% empty %}
+            <li>No todo yet.</li>
+    {% endfor %}
+
+
 
 {% endblock %}
