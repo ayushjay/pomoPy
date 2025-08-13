@@ -14,7 +14,7 @@
 
 2. Clone the repo  
 `git clone https://github.com/ayushjay/pomoPy.git `  
-`cd myproject`
+`cd pomoPy`
 
 3. Install the dependencies and run  
 `uv sync`  
