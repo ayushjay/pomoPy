@@ -12,7 +12,8 @@
 
 <div class="topnav">
   <a class="active" href="{% url 'todo:todolist_url' %}">Home</a>
-  <a href=" {% url 'pomodroApp:' %}">Pomodro</a>
+ <a style="background-color:red" href="{% url 'pomodroApp:pomo50' username=request.user.username %}">Pomodro=50 min</a>
+  <a style="background-color:green" href="{% url 'pomodroApp:pomo25' username=request.user.username %}">Pomodro=25 min</a>
   <a href="{%  url 'todo:create' %}">Create Task</a>
 {% if user.is_authenticated %}
 
