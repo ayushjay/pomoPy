@@ -6,7 +6,7 @@
 4. Multiple apps routing
 
 ### Working
-![gif](assests/working gif.gif)
+![gif](assets/work.gif)
 
 ### Installation
 1. This project uses the [uv](https://docs.astral.sh/uv/guides/install-python/) package manager  
