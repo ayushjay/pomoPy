@@ -5,6 +5,9 @@
 3. Function based and cbv's
 4. Multiple apps routing
 
+### Working
+[gif](assests/working gif.gif)
+
 ### Installation
 1. This project uses the [uv](https://docs.astral.sh/uv/guides/install-python/) package manager  
 `pip install uv`  
